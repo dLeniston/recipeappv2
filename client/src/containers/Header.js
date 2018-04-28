@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 class Header extends Component{
     renderContent(){
                 return [
-                    <li><a href="#">New Recipe</a></li>,
+                    <li><a href="/recipes/new">New Recipe</a></li>,
                     <li><a href="#">Logout</a></li>
                 ];
     }

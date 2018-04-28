@@ -2,11 +2,21 @@ const express = require('express');
 const router = express.Router({mergeParams: true});
 const Recipe = require("../models/Recipe");
 
+
+router.get("/", async function(req, res, next){
+    try{
+        let recipes = await Recipe.find().sort({createdAt: "desc"});
+        return res.status(200).json(recipes);
+    }catch(err){
+        return next(err);
+    }
+});
+
 router.post('/', async function(req, res, next){
     try{
         let recipe = await Recipe.create({
             name: req.body.recipeData.name,
-            img: req.body.recipeData.img,
+            image: req.body.recipeData.image,
             ingredients: req.body.recipeData.ingredients,
             instructions: req.body.recipeData.instructions
         });
@@ -18,7 +28,7 @@ router.post('/', async function(req, res, next){
 
 router.get('/:recipe_id', async function(req, res, next){
     try{
-        let foundRecipe = await Recipe.find(req.params.recipe_id);
+        let foundRecipe = await Recipe.findById(req.params.recipe_id);
         return res.status(200).json(foundRecipe);
     }catch(err){
         return next(err);
@@ -27,7 +37,7 @@ router.get('/:recipe_id', async function(req, res, next){
 
 router.put("/:recipe_id", async function(req, res, next){
     try{
-        let foundRecipe = await Recipe.findById(req.params.event_id);
+        let foundRecipe = await Recipe.findById(req.params.recipe_id);
         await foundRecipe.update({
             name: req.body.recipeData.name,
             img: req.body.recipeData.img,

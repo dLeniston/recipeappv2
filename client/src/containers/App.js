@@ -12,8 +12,8 @@ class App extends Component {
       <div>
         <BrowserRouter>
           <div className="container" style={{"width" : "100%" }}>
-          <Route exact path="/" component={Landing} />
-            <Route exact path="/home" component={Main} />
+            <Header />
+            <Main />
           </div>
         </BrowserRouter>
       </div>
