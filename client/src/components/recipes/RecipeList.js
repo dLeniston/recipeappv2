@@ -16,9 +16,10 @@ class RecipeList extends Component{
         this.props.fetchRecipes();
     }
     
-    /*componentWillUpdate(){
+    componentWillUpdate(){
         this.props.fetchRecipes();
-    }*/
+    }
+    
     render(){
         const { recipes } = this.props;
         let recipeList = Object.keys(recipes).map((item, index) =>{
@@ -27,7 +28,7 @@ class RecipeList extends Component{
                     <div style={{width: "300px"}}>
                         <div className="card">
                             <div className="card-image">
-                                <img src= {recipes[item].image} />
+                                <img src= {recipes[item].image} style={{height: "300px"}}/>
                                 <span className="card-title" key={index}>{recipes[item].name}</span>
                             </div>
                             <div class="card-action">

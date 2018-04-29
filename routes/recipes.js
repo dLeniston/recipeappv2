@@ -54,7 +54,7 @@ router.delete('/:recipe_id', async function(req, res, next){
     try{
        let foundRecipe = await Recipe.findById(req.params.recipe_id);
        await foundRecipe.remove();
-       return res.status(200).json(foundRecipe);
+       return res.status(200).json({message: "Recipe Deleted"});
     }catch(err){
         return next(err);
     }

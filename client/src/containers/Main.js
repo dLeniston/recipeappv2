@@ -10,7 +10,7 @@ import NewRecipeForm from './recipes/NewRecipeForm'
 const Main = props =>{
         return(
             <div className="container" style={{"width" : "100%" }}>
-            <Route exact path="/recipes" component={RecipesDashboard} />
+                <Route exact path="/recipes" component={RecipesDashboard} />
                 <Route exact path="/recipes/new" component={NewRecipeForm} />
                 <Route exact path="/recipes/:id" component={RecipeDisplay} />
             </div>

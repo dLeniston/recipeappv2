@@ -18,7 +18,7 @@ class NewRecipeForm extends Component{
       event.preventDefault();  
       this.props.postNewRecipe(this.state);
       this.setState({name: "", image: "", ingredients: "", instructions: ""});
-      this.props.history.push("/home");
+      this.props.history.push("/recipes");
     };
     
     render(){
