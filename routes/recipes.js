@@ -40,7 +40,7 @@ router.put("/:recipe_id", async function(req, res, next){
         let foundRecipe = await Recipe.findById(req.params.recipe_id);
         await foundRecipe.update({
             name: req.body.recipeData.name,
-            img: req.body.recipeData.img,
+            image: req.body.recipeData.image,
             ingredients: req.body.recipeData.ingredients,
             instructions: req.body.recipeData.instructions
         });

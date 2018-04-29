@@ -57,7 +57,13 @@ class RecipeDisplay extends Component{
                                 </div>
                             </div>
                             <div className="card-action">
-                                <a className="btn-floating btn-small waves-effect waves-light blue"><i className="fa fa-pencil"></i></a>
+                                <Link to={{
+                                      pathname: `/recipes/${id}/edit`,
+                                      state: { id }
+                                    }}
+                                    className="btn-floating btn-small waves-effect waves-light blue"
+                                ><i className="fa fa-pencil"></i>
+                                </Link>
                                 <a className="btn-floating btn-small waves-effect waves-light red" style={{float:"right", paddingRight:"5px"}} onClick={this.handleRemoveRecipe}><i className="fa fa-trash-o"></i></a>
                             </div>
                             </div>

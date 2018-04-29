@@ -33,7 +33,7 @@ class RecipeList extends Component{
                             </div>
                             <div class="card-action">
                                 <a><Link to={{
-                                pathname: `/recipes/${id}`,
+                                pathname: `/recipes/${id}/show`,
                                 state: {id}
                                 }}
                             >View Recipe</Link></a>

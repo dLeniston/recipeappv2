@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOAD_RECIPES, FETCH_RECIPE, ADD_RECIPE, REMOVE_RECIPE } from './types';
+import { LOAD_RECIPES, FETCH_RECIPE, ADD_RECIPE, UPDATE_RECIPE, REMOVE_RECIPE } from './types';
 
 export const fetchRecipes = () => async dispatch =>{
     const res = await axios.get('/api/recipes');
@@ -14,6 +14,11 @@ export const fetchRecipe = (recipe_id) => async dispatch =>{
 export const postNewRecipe = (recipeData) => async dispatch =>{
     const res = await axios.post('/api/recipes', { recipeData });
     dispatch({type: ADD_RECIPE, payload: res.data});
+};
+
+export const updateRecipe = (recipe_id, recipeData) => async dispatch =>{
+    const res = await axios.put(`/api/recipes/${recipe_id}`, {recipeData});
+    dispatch({type: UPDATE_RECIPE, payload: res.data});
 };
 
 export const removeRecipe = (recipe_id) => async dispatch =>{
