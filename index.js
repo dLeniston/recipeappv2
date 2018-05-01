@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const keys = require('./config/dev');
 
 const recipeRoutes = require('./routes/recipes');
+const commentRoutes = require('./routes/comments');
 
 mongoose.connect(keys.mongoURI, {
     keepAlive: true,
@@ -14,6 +15,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use("/api/recipes",  recipeRoutes);
+app.use("/api/comments", commentRoutes);
 
 const PORT = 8081;
 
