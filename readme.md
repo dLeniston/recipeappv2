@@ -12,8 +12,7 @@ RecipeApp v2 is currently not completely finished, however it implements a node/
 |/api/recipes  	                  |Get all recipes   	                |create recipe   	|N/A   	           |N/A                   |
 |/api/recipes/:recipe_id   	      |Get a recipe with id 	                |N/A 	    |Update a recipe 	           |Delete a recipe                   |
 |/api/recipes/:recipe_id/comments |N/A  	                            |Post a comment to a recipe |N/A   	           |N/A                   |
-|/api/recipes/:recipe_id/
-  comments/:comment_id            |Get a comment with id  	            |N/A   	            |Update a comment   	           |Delete a comment                  |
+|/api/recipes/:recipe_id/comments/:comment_id            |Get a comment with id  	            |N/A   	            |Update a comment   	           |Delete a comment                  |
   
   The readme and routing table will be updated once the RecipeApp is completed.
 
