@@ -15,7 +15,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use("/api/recipes",  recipeRoutes);
-app.use("/api/comments", commentRoutes);
+app.use("/api/recipes/:recipe_id/comments", commentRoutes);
 
 const PORT = 8081;
 

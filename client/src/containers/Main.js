@@ -7,6 +7,7 @@ import RecipesDashboard from '../components/recipes/RecipesDashboard';
 import RecipeDisplay from './recipes/RecipeDisplay';
 import NewRecipeForm from './recipes/NewRecipeForm';
 import EditRecipeDashboard from '../components/recipes/EditRecipeDashboard';
+import NewCommentForm from './comments/NewCommentForm';
 
 const Main = props =>{
         return(
@@ -15,6 +16,7 @@ const Main = props =>{
                 <Route exact path="/recipes/new" component={NewRecipeForm} />
                 <Route exact path="/recipes/:id/show" component={RecipeDisplay} />
                 <Route exact path="/recipes/:id/edit" component={EditRecipeDashboard} />
+                <Route exact path="/recipes/:id/comments/new" component={NewCommentForm} />
             </div>
         );
     };

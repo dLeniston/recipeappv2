@@ -2,7 +2,7 @@ import axios from 'axios';
 import { LOAD_COMMENTS, FETCH_COMMENT, ADD_COMMENT, UPDATE_COMMENT, REMOVE_COMMENT } from './types';
 
 export const fetchComments = (recipe_id) => async dispatch =>{
-    const res = await axios.get('/api/comments');
+    const res = await axios.get(`/api/recipes/${recipe_id}/comments`);
     dispatch({type: LOAD_COMMENTS, payload: res.data});
 };
 
@@ -11,8 +11,8 @@ export const fetchComment = (comment_id) => async dispatch =>{
     dispatch({type: FETCH_COMMENT, payload: res.data});
 };
 
-export const postNewComment = (commentData) => async dispatch =>{
-    const res = await axios.post('/api/comments', { commentData });
+export const postNewComment = (recipe_id, commentData) => async dispatch =>{
+    const res = await axios.post(`/api/recipes/${recipe_id}/comments`, { commentData });
     dispatch({type: ADD_COMMENT, payload: res.data});
 };
 

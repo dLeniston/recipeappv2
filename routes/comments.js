@@ -8,7 +8,10 @@ router.post('/', async function(req, res, next){
     try{
         let comment = await Comment.create({
         text: req.body.commentData.text
-    });
+        });
+        let foundRecipe = await Recipe.findById(req.params.recipe_id);
+        foundRecipe.comments.push(comment.id);
+        await foundRecipe.save();
         return res.status(200).json(comment);
     }catch(err){
         return next(err);
@@ -18,8 +21,10 @@ router.post('/', async function(req, res, next){
 router.get('/', async function(req, res, next){
     try{
         let foundRecipe = await Recipe.findById(req.params.recipe_id);
-        let posts = await Comment.find({'recipe' : foundRecipe}).sort({createdAt: "desc"});
-        return res.status(200).json(posts);
+        console.log("RECIPE", foundRecipe);
+        //let comments = await Comment.find({'recipe' : foundRecipe}).sort({created: 1});
+        //return res.status(200).json(comments);
+        return res.status(200).json({MSG: "Message"});
     }catch(err){
         return next(err);
     }

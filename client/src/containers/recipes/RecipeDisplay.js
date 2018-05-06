@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { fetchRecipe, removeRecipe } from '../../actions/recipes';
 import Moment from 'react-moment';
 
+import CommentList from '../comments/CommentList';
+
 class RecipeDisplay extends Component{
     constructor(props){
     super(props);
@@ -77,7 +79,16 @@ class RecipeDisplay extends Component{
                     <hr style={{margin: "auto"}}/>
                     </div>
                 </div>
-                {/*Make a Comments Component */}
+                <div>
+                <Link to={{
+                                      pathname: `/recipes/${id}/comments/new`,
+                                      state: { id }
+                                    }}
+                                    className="btn"
+                                >Add Comment
+                                </Link>
+                </div>
+                <CommentList recipeId={id} />
             </div>
             );
     }
